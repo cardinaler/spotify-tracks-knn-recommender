@@ -1,1 +1,15 @@
-# spotify-tracks-knn-recommender
+# Spotify Track Recommender System
+Система поиска ближайших соседей (KNN) для рекомендации трека пользователю на основе выбранного трека.
+
+Проект реализован **с нуля на чистом numpy**
+
+
+По выбраному треку методами алгоритма KNN будет предсказано 5 самых похожих треков.
+
+```text
+spotify-knn-recommender/
+│
+├── data/                  # Датасет (инструкция по загрузке)
+├── src/
+    ├── knn.py             # KNN recomender
+├── README.md
