@@ -1,2 +1,5 @@
 data/spotify_data/dataset.csv
 .vscode/settings.json
+src/__pycache__/preprocessor.cpython-311.pyc
+data/processed/features.npy
+data/processed/meta.csv
