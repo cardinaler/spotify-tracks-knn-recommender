@@ -12,5 +12,7 @@ spotify-knn-recommender/
 ├── notebooks/
     ├── spotify_data_eda   # Предварительная оценка данных (черновик)
 ├── src/
+    ├── make_dataset.py    # Предобработка и сохранение полученых данных
     ├── knn.py             # KNN recomender
+    ├── preprocessor.py    # Методы по предобработке данных
 ├── README.md
