@@ -3,3 +3,5 @@ data/spotify_data/dataset.csv
 src/__pycache__/preprocessor.cpython-311.pyc
 data/processed/features.npy
 data/processed/meta.csv
+src/__pycache__/knn_recomender.cpython-311.pyc
+src/__pycache__/make_dataset.cpython-311.pyc

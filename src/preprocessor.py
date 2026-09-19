@@ -61,6 +61,19 @@ class SpotifyDataPreprocessor:
 
     def clean_data(self, df: pd.DataFrame):
         df_clean = df.copy()
+    
+        df_clean['artist_norm'] = df_clean['artists'].astype(str).str.strip().str.lower()
+        df_clean['track_norm'] = df_clean['track_name'].astype(str).str.strip().str.lower()
+
+        df_clean = df_clean.sort_values(by='popularity', ascending=False)
+
+        df_clean = df_clean.drop_duplicates(
+            subset=['artist_norm', 'track_norm'], 
+            keep='first'
+        )
+
+        df_clean = df_clean.drop(columns=['artist_norm', 'track_norm'])
+
         mask = (
             (df_clean['duration_ms'] > 30 * 1000) &
             (df_clean['duration_ms'] < 10 * 60 * 1000) &
@@ -77,6 +90,13 @@ class SpotifyDataPreprocessor:
         df_meta = df_clean[self.META_COLS]
         X_scaled = self.ct.fit_transform(df_clean)
 
+        return X_scaled, df_meta
+
+    def trasform(self, df: pd.DataFrame):
+        df_clean = self.clean_data(df)
+        df_meta = df_clean[self.META_COLS]
+        X_scaled = self.ct.fit_transform(df_clean)
+        
         return X_scaled, df_meta
 
     def get_feature_names_out(self):
