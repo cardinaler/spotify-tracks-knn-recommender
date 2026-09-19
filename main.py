@@ -14,7 +14,7 @@ path_to_save = path + '/data/processed/'
 df_meta = pd.read_csv(path_to_save + 'meta.csv')
 X_train = np.load(path_to_save + 'features.npy')
 
-id = 42
+id = 42 # ID выбранного трека
 
 print('Chosen:', df_meta.iloc[id])
 
